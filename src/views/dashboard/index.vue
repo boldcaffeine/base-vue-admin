@@ -2,6 +2,7 @@
   <div>
     我是dashboard
     <div>{{ count }}</div>
+    <div>{{ countAlias }}</div>
     <el-button @click="increment">count</el-button>
   </div>
 </template>
@@ -25,7 +26,6 @@ export default {
   },
   methods: {
     async increment() {
-      this.handleLoginOut();
       this.$store.commit("increment");
     },
     async handleGetInfo() {
