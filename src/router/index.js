@@ -14,7 +14,9 @@ const routes = [
     hidden: true,
   },
 ];
-
+export const asyncRoutes = [];
+export const constantRoutes = [];
+export const resetRouter = function () {};
 const router = new VueRouter({
   routes,
 });
