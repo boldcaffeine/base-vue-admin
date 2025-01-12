@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import { getInfo } from "@/api/common";
+import { getUsers } from "@/api/common";
 
 export default {
   data: () => {
@@ -16,16 +16,17 @@ export default {
     };
   },
 
+
   mounted() {
-    // this.handleGetInfo();
+    this.handleGetUsers();
   },
   methods: {
     async increment() {
 
     },
-    async handleGetInfo() {
+    async handleGetUsers() {
       let param = { id: 1 };
-      let result = await getInfo(param);
+      let result = await getUsers(param);
       console.log(result);
     },
   },

@@ -26,5 +26,7 @@ module.exports = {
     "vue/html-indent": "off",
     // 忽略关闭括号换行规则
     "vue/html-closing-bracket-newline": "off",
+    "no-useless-escape": "off",
+    "no-unused-vars": "off",
   },
 };

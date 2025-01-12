@@ -13,6 +13,14 @@ import "./icons"; // icon
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 
+// 仅在开发环境中使用 mock
+
+if (process.env.NODE_ENV === "development") {
+  import("../mock/mockService"); // 引入 mock 服务
+  const { mockXHR } = require("../mock");
+  mockXHR();
+}
+
 new Vue({
   store,
   router,
