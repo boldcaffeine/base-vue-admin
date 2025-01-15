@@ -16,17 +16,15 @@ module.exports = {
   ],
   plugins: ["vue", "prettier"], // 添加 prettier 插件
   rules: {
-    "prettier/prettier": ["error"], // 强制使用 Prettier 格式化
-    "vue/max-attributes-per-line": ["error", { singleline: 1, multiline: 1 }],
+    "prettier/prettier": "off", // 禁用 prettier 格式化检查
+    "vue/max-attributes-per-line": "off", // 禁用该规则
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "no-useless-escape": "off", // 禁用该规则
     "vue/no-deprecated-v-on-native-modifier": "off", // 禁用该规则
-    'vue/max-attributes-per-line': 'off', // 禁用该规则
-    'vue/multi-word-component-names': 'off', // 禁用该规则
-    'prettier/prettier': 'off', // 禁用 prettier 格式化检查
-    'vue/no-deprecated-dollar-listeners-api': 'off', // 禁用该规则
-    'vue/no-deprecated-destroyed-lifecycle': 'off', // 禁用该规则
-    'vue/no-deprecated-v-bind-sync': 'off', // 禁用该规则
+    "vue/multi-word-component-names": "off", // 禁用该规则
+    "vue/no-deprecated-dollar-listeners-api": "off", // 禁用该规则
+    "vue/no-deprecated-destroyed-lifecycle": "off", // 禁用该规则
+    "vue/no-deprecated-v-bind-sync": "off", // 禁用该规则
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };
