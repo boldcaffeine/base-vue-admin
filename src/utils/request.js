@@ -19,7 +19,7 @@ service.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // 响应拦截器
@@ -39,7 +39,7 @@ service.interceptors.response.use(
       console.error("请求错误", error.message);
     }
     return error;
-  }
+  },
 );
 
 export default service;

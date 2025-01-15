@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: "babel-eslint",
+    parser: "@babel/eslint-parser",
     sourceType: "module",
   },
   env: {
@@ -9,24 +9,24 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ["plugin:vue/recommended", "eslint:recommended"],
+  extends: [
+    "plugin:vue/vue3-recommended", // Vue 3 推荐规则
+    "eslint:recommended", // ESLint 推荐规则
+    "plugin:prettier/recommended", // 启用 Prettier 规则
+  ],
+  plugins: ["vue", "prettier"], // 添加 prettier 插件
   rules: {
-    "vue/multi-word-component-names": "off",
-    "vue/singleline-html-element-content-newline": "off",
-    "vue/multiline-html-element-content-newline": "off",
-    "vue/max-attributes-per-line": [
-      "error",
-      {
-        singleline: 10, // 单行属性最大数量
-        multiline: 10, // 多行属性最大数量
-      },
-    ],
-    "vue/first-attribute-linebreak": "off",
-    // 忽略缩进规则
-    "vue/html-indent": "off",
-    // 忽略关闭括号换行规则
-    "vue/html-closing-bracket-newline": "off",
-    "no-useless-escape": "off",
-    "no-unused-vars": "off",
+    "prettier/prettier": ["error"], // 强制使用 Prettier 格式化
+    "vue/max-attributes-per-line": ["error", { singleline: 1, multiline: 1 }],
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "no-useless-escape": "off", // 禁用该规则
+    "vue/no-deprecated-v-on-native-modifier": "off", // 禁用该规则
+    'vue/max-attributes-per-line': 'off', // 禁用该规则
+    'vue/multi-word-component-names': 'off', // 禁用该规则
+    'prettier/prettier': 'off', // 禁用 prettier 格式化检查
+    'vue/no-deprecated-dollar-listeners-api': 'off', // 禁用该规则
+    'vue/no-deprecated-destroyed-lifecycle': 'off', // 禁用该规则
+    'vue/no-deprecated-v-bind-sync': 'off', // 禁用该规则
+    // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };

@@ -2,7 +2,6 @@
   <div>
     我是dashboard
     <div>{{ message }}</div>
-
     <el-button @click="increment">count</el-button>
   </div>
 </template>
@@ -16,14 +15,11 @@ export default {
     };
   },
 
-
   mounted() {
     this.handleGetUsers();
   },
   methods: {
-    async increment() {
-
-    },
+    async increment() {},
     async handleGetUsers() {
       let param = { id: 1 };
       let result = await getUsers(param);
