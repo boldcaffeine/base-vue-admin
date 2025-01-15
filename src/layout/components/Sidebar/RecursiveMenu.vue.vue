@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div v-if="!menuItem.hidden">
         <template v-if="menuItem.children && menuItem.children.length">
-            <el-submenu :index="menuItem.index">
+            <el-submenu :index="menuItem.path">
                 <template #title>
                     <i :class="menuItem.icon" />
                     <span>{{ menuItem.title }}</span>
@@ -10,7 +10,7 @@
             </el-submenu>
         </template>
         <template v-else>
-            <el-menu-item :index="menuItem.index" :disabled="menuItem.disabled">
+            <el-menu-item :index="menuItem.path" :disabled="menuItem.disabled">
                 <i :class="menuItem.icon" />
                 <span>{{ menuItem.title }}</span>
             </el-menu-item>

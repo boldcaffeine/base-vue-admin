@@ -2,20 +2,9 @@
   <div :class="{ 'has-logo': showLogo }" class="sidebar-container-inner">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <recursive-menu
-          v-for="item in menuData"
-          :key="item.index"
-          :menu-item="item"
-        />
+      <el-menu default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
+        active-text-color="#ffd04b" @open="handleOpen" @close="handleClose">
+        <recursive-menu v-for="item in permission_routes" :key="item.path" :menu-item="item" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -156,7 +145,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.permission_routes);
+    console.log(this.permission_routes, 'permission_routes');
   },
   methods: {
     handleOpen() {

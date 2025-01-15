@@ -25,6 +25,7 @@ module.exports = {
     "vue/no-deprecated-dollar-listeners-api": "off", // 禁用该规则
     "vue/no-deprecated-destroyed-lifecycle": "off", // 禁用该规则
     "vue/no-deprecated-v-bind-sync": "off", // 禁用该规则
+    "vue/first-attribute-linebreak": "off",
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };
