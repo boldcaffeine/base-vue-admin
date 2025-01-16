@@ -2,9 +2,20 @@
   <div :class="{ 'has-logo': showLogo }" class="sidebar-container-inner">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
-        active-text-color="#ffd04b" @open="handleOpen" @close="handleClose">
-        <recursive-menu v-for="item in permission_routes" :key="item.path" :menu-item="item" />
+      <el-menu
+        :default-active="activeMenu"
+        :collapse="isCollapse"
+        background-color="#304156"
+        text-color="#bfcbd9"
+        :unique-opened="false"
+        active-text-color="#409EFF"
+        :collapse-transition="false"
+      >
+        <recursive-menu
+          v-for="item in permission_routes"
+          :key="item.path"
+          :menu-item="item"
+        />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -131,11 +142,12 @@ export default {
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
-      // if set path, the sidebar will highlight the path you set
+      
       if (meta.activeMenu) {
         return meta.activeMenu;
       }
-      return path;
+      let  url= path.replaceAll('/','');
+      return url;
     },
     isCollapse() {
       return !this.sidebar.opened;
@@ -145,7 +157,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.permission_routes, 'permission_routes');
+    console.log(this.permission_routes, "permission_routes");
   },
   methods: {
     handleOpen() {
@@ -160,8 +172,10 @@ export default {
 
 <style lang="scss">
 .sidebar-container-inner {
+  .svg-icon {
+    margin-right: 16px;
+  }
   .scrollbar-wrapper {
-    border: 1px solid red;
     overflow-x: hidden !important;
   }
 
@@ -174,10 +188,5 @@ export default {
       height: calc(100% - 50px);
     }
   }
-}
-
-.title {
-  font-size: 14px;
-  color: #fff;
 }
 </style>
