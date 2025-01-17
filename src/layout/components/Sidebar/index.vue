@@ -189,15 +189,16 @@ export default {
       height: calc(100% - 50px);
     }
   }
-  .el-submenu {
-   
-    .el-menu-item {
-      min-width: $sideBarWidth !important;
-      background-color: $subMenuBg !important;
-      &:hover {
-        background-color: $subMenuHover !important;
-      }
-    }
-  }
+  .el-menu {
+   .el-menu-item {
+     min-width: $sideBarWidth !important;
+     background-color: $subMenuBg !important;
+     &:hover {
+       background-color: $subMenuHover !important;
+     }
+   }
+ }
+ 
 }
+
 </style>
