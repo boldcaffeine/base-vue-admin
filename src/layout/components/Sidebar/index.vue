@@ -142,11 +142,11 @@ export default {
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
-      
+
       if (meta.activeMenu) {
         return meta.activeMenu;
       }
-      let  url= path.replaceAll('/','');
+      let url = path.replaceAll("/", "");
       return url;
     },
     isCollapse() {
@@ -171,6 +171,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@/globalStyles/variables.scss";
 .sidebar-container-inner {
   .svg-icon {
     margin-right: 16px;
@@ -186,6 +187,16 @@ export default {
   &.has-logo {
     .el-scrollbar {
       height: calc(100% - 50px);
+    }
+  }
+  .el-submenu {
+   
+    .el-menu-item {
+      min-width: $sideBarWidth !important;
+      background-color: $subMenuBg !important;
+      &:hover {
+        background-color: $subMenuHover !important;
+      }
     }
   }
 }
