@@ -9,7 +9,7 @@
 <script>
 
 import Sidebar from "./components/Sidebar/index.vue";
-
+import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
 export default {
@@ -17,6 +17,7 @@ export default {
     components: {
         Sidebar
     },
+    mixins: [ResizeMixin],
     computed: {
         ...mapState({
             sidebar: state => state.app.sidebar,
