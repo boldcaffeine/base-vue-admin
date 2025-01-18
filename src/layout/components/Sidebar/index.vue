@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'has-logo': showLogo }" class="sidebar-container-inner">
+  <div :class="{ 'has-logo': showLogo }">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -7,8 +7,8 @@
         :collapse="isCollapse"
         background-color="#304156"
         text-color="#bfcbd9"
-        :unique-opened="false"
         active-text-color="#409EFF"
+        :unique-opened="false"
         :collapse-transition="false"
       >
         <recursive-menu
@@ -53,35 +53,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~@/globalStyles/variables.scss";
-.sidebar-container-inner {
-  .svg-icon {
-    margin-right: 16px;
-  }
-  .scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
 
-  .el-scrollbar {
-    height: 100%;
-  }
 
-  &.has-logo {
-    .el-scrollbar {
-      height: calc(100% - 50px);
-    }
-  }
-  .el-menu {
-   .el-menu-item {
-     min-width: $sideBarWidth !important;
-     background-color: $subMenuBg !important;
-     &:hover {
-       background-color: $subMenuHover !important;
-     }
-   }
- }
- 
-}
-
-</style>

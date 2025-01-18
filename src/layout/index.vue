@@ -8,7 +8,7 @@
     <sidebar class="sidebar-container" />
     <div class="main-container" :class="{ hasTagsView: needTagsView }">
       <div :class="{ 'fixed-header': fixedHeader }">
-           1111
+        <navbar></navbar>
       </div>
     </div>
   </div>
@@ -16,6 +16,7 @@
 
 <script>
 import Sidebar from "./components/Sidebar/index.vue";
+import Navbar from "./components/Navbar/index.vue";
 // import ResizeMixin from "./mixin/ResizeHandler";
 import { mapState } from "vuex";
 
@@ -23,8 +24,9 @@ export default {
   name: "Layout",
   components: {
     Sidebar,
+    Navbar,
   },
-//   mixins: [ResizeMixin],
+  //   mixins: [ResizeMixin],
   computed: {
     ...mapState({
       sidebar: (state) => state.app.sidebar,
@@ -68,7 +70,7 @@ export default {
   /* layout 菜单导航和右侧内容 整体样式布局 */
   .sidebar-container {
     transition: width 0.28s;
-    width: $sideBarWidth !important;
+    width: $sideBarWidth;
     background-color: $menuBg;
     height: 100%;
     position: fixed;
@@ -78,6 +80,34 @@ export default {
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    // reset element-ui css
+    &.has-logo {
+      .el-scrollbar {
+        height: calc(100% - 50px);
+      }
+    }
+    :deep(.el-scrollbar) {
+      height: 100%;
+      .el-scrollbar__view {
+        height: 100%;
+      }
+      .svg-icon{
+      width: 24px;
+    }
+      .el-menu {
+        border: none;
+        height: 100%;
+        width: 100% !important;
+        .el-menu-item {
+          min-width: $sideBarWidth;
+          background-color: $subMenuBg;
+          &:hover {
+            background-color: $subMenuHover;
+          }
+        }
+      }
+    }
+   
   }
 
   .main-container {
@@ -85,6 +115,15 @@ export default {
     min-height: 100%;
     transition: margin-left 0.28s;
     position: relative;
+  }
+  // 处理菜单折叠的情况
+  &.hideSidebar {
+    .sidebar-container {
+      width: 65px;
+    }
+    .main-container {
+      margin-left: 65px;
+    }
   }
 }
 

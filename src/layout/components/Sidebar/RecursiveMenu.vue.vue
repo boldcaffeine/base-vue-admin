@@ -4,9 +4,10 @@
       <router-link :to="onlyOneChild.path">
         <el-menu-item :index="onlyOneChild.path" >
           <svg-icon :icon-class="onlyOneChild.meta.icon" />
-          <span>{{ onlyOneChild.meta.title }}</span>
+          <span  slot="title">{{ onlyOneChild.meta.title }}</span>
         </el-menu-item>
       </router-link>
+   
     </template>
     <template v-else>
       <el-submenu :index="menuItem.path">
