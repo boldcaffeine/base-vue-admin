@@ -9,8 +9,11 @@
     <div class="main-container" :class="{ hasTagsView: needTagsView }">
       <div :class="{ 'fixed-header': fixedHeader }">
         <navbar></navbar>
-        <tags-view v-if="true" />
+        <tags-view v-if="needTagsView" />
       </div>
+      <right-panel v-if="showSettings">
+        <settings />
+      </right-panel>
     </div>
   </div>
 </template>
@@ -19,6 +22,8 @@
 import Sidebar from "./components/Sidebar/index.vue";
 import Navbar from "./components/Navbar/index.vue";
 import TagsView from "./components/TagsView/index.vue";
+import Settings from "./components/Settings/index.vue";
+import RightPanel from "@/components/RightPanel";
 
 // import ResizeMixin from "./mixin/ResizeHandler";
 import { mapState } from "vuex";
@@ -28,7 +33,9 @@ export default {
   components: {
     Sidebar,
     Navbar,
-    TagsView
+    TagsView,
+    RightPanel,
+    Settings,
   },
   //   mixins: [ResizeMixin],
   computed: {
@@ -86,7 +93,7 @@ export default {
     overflow: hidden;
     // reset element-ui css
     &.has-logo {
-      .el-scrollbar {
+      :deep(.el-scrollbar) {
         height: calc(100% - 50px);
       }
     }
@@ -125,7 +132,6 @@ export default {
     }
     .main-container {
       margin-left: 64px;
-     
     }
   }
 }
@@ -145,7 +151,7 @@ export default {
   top: 0;
   right: 0;
   z-index: 9;
-
+  width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
 }
 
