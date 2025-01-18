@@ -11,6 +11,7 @@
       <template v-if="device !== 'mobile'">
         <search id="header-search" class="right-menu-item" />
         <error-log class="errLog-container right-menu-item hover-effect" />
+        <screenfull id="screenfull" class="right-menu-item hover-effect" />
       </template>
     </div>
   </div>
@@ -22,12 +23,14 @@ import Hamburger from "@/components/Hamburger";
 import Breadcrumb from "@/components/Breadcrumb";
 import Search from "@/components/HeaderSearch";
 import ErrorLog from "@/components/ErrorLog";
+import Screenfull from '@/components/Screenfull'
 export default {
   components: {
     Hamburger,
     Breadcrumb,
     Search,
     ErrorLog,
+    Screenfull
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),
