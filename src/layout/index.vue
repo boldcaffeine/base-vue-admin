@@ -9,6 +9,7 @@
     <div class="main-container" :class="{ hasTagsView: needTagsView }">
       <div :class="{ 'fixed-header': fixedHeader }">
         <navbar></navbar>
+        <tags-view v-if="true" />
       </div>
     </div>
   </div>
@@ -17,6 +18,8 @@
 <script>
 import Sidebar from "./components/Sidebar/index.vue";
 import Navbar from "./components/Navbar/index.vue";
+import TagsView from "./components/TagsView/index.vue";
+
 // import ResizeMixin from "./mixin/ResizeHandler";
 import { mapState } from "vuex";
 
@@ -25,6 +28,7 @@ export default {
   components: {
     Sidebar,
     Navbar,
+    TagsView
   },
   //   mixins: [ResizeMixin],
   computed: {
