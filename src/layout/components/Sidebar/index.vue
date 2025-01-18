@@ -15,6 +15,7 @@
           v-for="item in permission_routes"
           :key="item.path"
           :menu-item="item"
+          :base-path="item.path"
         />
       </el-menu>
     </el-scrollbar>
@@ -31,14 +32,12 @@ export default {
   computed: {
     ...mapGetters(["sidebar", "permission_routes"]),
     activeMenu() {
-      const route = this.$route;
-      const { meta, path } = route;
-
+      const route = this.$route
+      const { meta, path } = route
       if (meta.activeMenu) {
-        return meta.activeMenu;
+        return meta.activeMenu
       }
-      let url = path.replaceAll("/", "");
-      return url;
+      return path
     },
     isCollapse() {
       return !this.sidebar.opened;
@@ -52,6 +51,3 @@ export default {
   },
 };
 </script>
-
-
-

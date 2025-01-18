@@ -7,18 +7,26 @@
       @toggleClick="toggleSideBar"
     />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-    
+    <div class="right-menu">
+      <template v-if="device!=='mobile'">
+        
+        <search id="header-search" class="right-menu-item" />
+      </template>
+  
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import Hamburger from "@/components/Hamburger";
-import Breadcrumb from '@/components/Breadcrumb'
+import Breadcrumb from "@/components/Breadcrumb";
+import Search from '@/components/HeaderSearch'
 export default {
   components: {
     Hamburger,
-    Breadcrumb
+    Breadcrumb,
+    Search
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),
@@ -43,11 +51,35 @@ export default {
     height: 100%;
     float: left;
     cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgba(0, 0, 0, 0.025);
+    }
+  }
+  .right-menu {
+    float: right;
+    height: 100%;
+    line-height: 50px;
+    &:focus {
+      outline: none;
+    }
+
+    .right-menu-item {
+      display: inline-block;
+      padding: 0 8px;
+      height: 100%;
+      font-size: 18px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+      &.hover-effect {
+        cursor: pointer;
+        transition: background .3s;
+        &:hover {
+          background: rgba(0, 0, 0, .025)
+        }
+      }
     }
   }
 }

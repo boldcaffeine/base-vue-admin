@@ -27,7 +27,8 @@ module.exports = {
     "vue/no-deprecated-v-bind-sync": "off", // 禁用该规则
     "vue/first-attribute-linebreak": "off",
     "vue/no-deprecated-slot-attribute":"off",
-    "vue/v-on-event-hyphenation":"off"
+    "vue/v-on-event-hyphenation":"off",
+    "vue/require-explicit-emits":"off"
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };
