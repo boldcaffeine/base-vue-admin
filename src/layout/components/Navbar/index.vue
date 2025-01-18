@@ -8,11 +8,10 @@
     />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
-        
+      <template v-if="device !== 'mobile'">
         <search id="header-search" class="right-menu-item" />
+        <error-log class="errLog-container right-menu-item hover-effect" />
       </template>
-  
     </div>
   </div>
 </template>
@@ -21,12 +20,14 @@
 import { mapGetters } from "vuex";
 import Hamburger from "@/components/Hamburger";
 import Breadcrumb from "@/components/Breadcrumb";
-import Search from '@/components/HeaderSearch'
+import Search from "@/components/HeaderSearch";
+import ErrorLog from "@/components/ErrorLog";
 export default {
   components: {
     Hamburger,
     Breadcrumb,
-    Search
+    Search,
+    ErrorLog,
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),
@@ -75,11 +76,15 @@ export default {
       vertical-align: text-bottom;
       &.hover-effect {
         cursor: pointer;
-        transition: background .3s;
+        transition: background 0.3s;
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
+    }
+    .errLog-container {
+      display: inline-block;
+      vertical-align: top;
     }
   }
 }
