@@ -91,15 +91,14 @@ export default {
       .el-scrollbar__view {
         height: 100%;
       }
-      .svg-icon{
-      width: 24px;
-    }
+      .svg-icon {
+        width: 24px;
+      }
       .el-menu {
         border: none;
         height: 100%;
         width: 100% !important;
         .el-menu-item {
-          min-width: $sideBarWidth;
           background-color: $subMenuBg;
           &:hover {
             background-color: $subMenuHover;
@@ -107,7 +106,6 @@ export default {
         }
       }
     }
-   
   }
 
   .main-container {
@@ -119,10 +117,11 @@ export default {
   // 处理菜单折叠的情况
   &.hideSidebar {
     .sidebar-container {
-      width: 65px;
+      width: 64px;
     }
     .main-container {
-      margin-left: 65px;
+      margin-left: 64px;
+     
     }
   }
 }
