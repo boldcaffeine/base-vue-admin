@@ -1,30 +1,31 @@
 <template>
-  <div>
-    我是dashboard
-    <div>{{ message }}</div>
-    <el-button @click="increment">count</el-button>
+  <div class="dashboard-container">
+    <component :is="currentRole" />
   </div>
 </template>
+
 <script>
-import { getUsers } from "@/api/common";
+import { mapGetters } from 'vuex'
+import adminDashboard from './admin'
+import editorDashboard from './editor'
 
 export default {
-  data: () => {
+  name: 'Dashboard',
+  components: { adminDashboard, editorDashboard },
+  data() {
     return {
-      message: "3333",
-    };
+      currentRole: 'adminDashboard'
+    }
   },
-
-  mounted() {
-    this.handleGetUsers();
+  computed: {
+    ...mapGetters([
+      'roles'
+    ])
   },
-  methods: {
-    async increment() {},
-    async handleGetUsers() {
-      let param = { id: 1 };
-      let result = await getUsers(param);
-      console.log(result);
-    },
-  },
-};
+  created() {
+    if (!this.roles.includes('admin')) {
+      this.currentRole = 'editorDashboard'
+    }
+  }
+}
 </script>
