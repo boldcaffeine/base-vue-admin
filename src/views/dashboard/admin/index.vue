@@ -30,7 +30,7 @@
         <todo-list />
       </el-col>
       <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-    
+        <box-card />
       </el-col>
     </el-row>
   </div>
@@ -45,6 +45,7 @@ import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
 import TodoList from './components/TodoList'
 import TransactionTable from './components/TransactionTable'
+import BoxCard from './components/BoxCard'
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -74,7 +75,8 @@ export default {
     PieChart,
     BarChart,
     TransactionTable,
-    TodoList
+    TodoList,
+    BoxCard
   },
   data() {
     return {
