@@ -7,6 +7,7 @@ Vue.use(Router);
 import Layout from "@/layout";
 
 /* Router Modules */
+import componentsRouter from './modules/components'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -90,6 +91,7 @@ export const constantRoutes = [
       }
     ]
   },
+  componentsRouter,
   {
     path: '/redirect',
     component: Layout,

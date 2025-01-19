@@ -2,23 +2,29 @@
   <div v-if="!menuItem.hidden">
     <template v-if="hasOneShowingChild(menuItem.children, menuItem)">
       <router-link :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)" >
-          <svg-icon :icon-class="onlyOneChild.meta.icon" />
-          <span  slot="title">{{ onlyOneChild.meta.title }}</span>
+        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+          <svg-icon
+            v-if="onlyOneChild.meta && onlyOneChild.meta.icon"
+            :icon-class="onlyOneChild.meta.icon"
+          />
+          <span slot="title">{{ onlyOneChild.meta.title }}</span>
         </el-menu-item>
       </router-link>
-   
     </template>
     <template v-else>
       <el-submenu :index="resolvePath(menuItem.path)">
-        <template #title>
-          <i :class="menuItem.icon" />
-          <span>{{ menuItem.title }}</span>
+        <template slot="title">
+          <svg-icon
+            v-if="menuItem.meta && menuItem.meta.icon"
+            :icon-class="menuItem.meta.icon"
+          />
+          <span slot="title">{{ menuItem.meta.title }}</span>
         </template>
+       
         <recursive-menu
           v-for="child in menuItem.children"
           :key="child.index"
-           :base-path="resolvePath(child.path)"
+          :base-path="resolvePath(child.path)"
           :menu-item="child"
         />
       </el-submenu>
@@ -27,8 +33,8 @@
 </template>
 
 <script>
-import path from 'path-browserify';
-import { isExternal } from '@/utils/validate'
+import path from "path-browserify";
+import { isExternal } from "@/utils/validate";
 export default {
   name: "RecursiveMenu",
   props: {
@@ -38,8 +44,8 @@ export default {
     },
     basePath: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   data: () => {
     return {
@@ -73,13 +79,13 @@ export default {
     },
     resolvePath(routePath) {
       if (isExternal(routePath)) {
-        return routePath
+        return routePath;
       }
       if (isExternal(this.basePath)) {
-        return this.basePath
+        return this.basePath;
       }
-      return path.resolve(this.basePath, routePath)
-    }
+      return path.resolve(this.basePath, routePath);
+    },
   },
 };
 </script>

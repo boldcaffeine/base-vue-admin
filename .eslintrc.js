@@ -31,7 +31,8 @@ module.exports = {
     "vue/require-explicit-emits":"off",
     "vue/no-deprecated-slot-scope-attribute":"off",
     "vue/no-deprecated-router-link-tag-prop":"off",
-    "vue/no-deprecated-filter":"off"
+    "vue/no-deprecated-filter":"off",
+    "vue/no-v-html":"off"
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };

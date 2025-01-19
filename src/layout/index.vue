@@ -39,7 +39,7 @@ export default {
     TagsView,
     RightPanel,
     Settings,
-    AppMain
+    AppMain,
   },
   mixins: [ResizeMixin],
   computed: {
@@ -114,6 +114,19 @@ export default {
           background-color: $subMenuBg;
           &:hover {
             background-color: $subMenuHover;
+          }
+        }
+        &.el-menu--collapse {
+          .el-submenu {
+            & > .el-submenu__title {
+              & > span {
+                height: 0;
+                width: 0;
+                overflow: hidden;
+                visibility: hidden;
+                display: inline-block;
+              }
+            }
           }
         }
       }
