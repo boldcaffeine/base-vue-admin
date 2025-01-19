@@ -27,7 +27,7 @@
         <transaction-table />
       </el-col>
       <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-       
+        <todo-list />
       </el-col>
       <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
     
@@ -43,7 +43,7 @@ import LineChart from "./components/LineChart";
 import RaddarChart from './components/RaddarChart'
 import PieChart from './components/PieChart'
 import BarChart from './components/BarChart'
-
+import TodoList from './components/TodoList'
 import TransactionTable from './components/TransactionTable'
 const lineChartData = {
   newVisitis: {
@@ -73,7 +73,8 @@ export default {
     RaddarChart,
     PieChart,
     BarChart,
-    TransactionTable
+    TransactionTable,
+    TodoList
   },
   data() {
     return {
