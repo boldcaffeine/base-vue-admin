@@ -32,7 +32,9 @@ module.exports = {
     "vue/no-deprecated-slot-scope-attribute":"off",
     "vue/no-deprecated-router-link-tag-prop":"off",
     "vue/no-deprecated-filter":"off",
-    "vue/no-v-html":"off"
+    "vue/no-v-html":"off",
+    "no-unused-vars":"off",
+    "vue/no-mutating-props":"off"
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };
