@@ -30,7 +30,8 @@ module.exports = {
     "vue/v-on-event-hyphenation":"off",
     "vue/require-explicit-emits":"off",
     "vue/no-deprecated-slot-scope-attribute":"off",
-    "vue/no-deprecated-router-link-tag-prop":"off"
+    "vue/no-deprecated-router-link-tag-prop":"off",
+    "vue/no-deprecated-filter":"off"
     // 你可以根据需要在这里配置其他 ESLint 规则
   },
 };
