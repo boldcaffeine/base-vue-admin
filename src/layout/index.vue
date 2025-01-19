@@ -11,6 +11,7 @@
         <navbar></navbar>
         <tags-view v-if="needTagsView" />
       </div>
+      <app-main />
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>
@@ -23,6 +24,8 @@ import Sidebar from "./components/Sidebar/index.vue";
 import Navbar from "./components/Navbar/index.vue";
 import TagsView from "./components/TagsView/index.vue";
 import Settings from "./components/Settings/index.vue";
+import AppMain from "./components/AppMain/index.vue";
+
 import RightPanel from "@/components/RightPanel";
 
 // import ResizeMixin from "./mixin/ResizeHandler";
@@ -36,6 +39,7 @@ export default {
     TagsView,
     RightPanel,
     Settings,
+    AppMain
   },
   //   mixins: [ResizeMixin],
   computed: {
@@ -77,8 +81,6 @@ export default {
     position: fixed;
     top: 0;
   }
-
-  /* layout 菜单导航和右侧内容 整体样式布局 */
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth;
@@ -91,7 +93,6 @@ export default {
     left: 0;
     z-index: 1001;
     overflow: hidden;
-    // reset element-ui css
     &.has-logo {
       :deep(.el-scrollbar) {
         height: calc(100% - 50px);
