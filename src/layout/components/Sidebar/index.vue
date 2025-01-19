@@ -46,8 +46,5 @@ export default {
       return this.$store.state.settings.sidebarLogo;
     },
   },
-  mounted() {
-    console.log(this.permission_routes, "permission_routes");
-  },
 };
 </script>
