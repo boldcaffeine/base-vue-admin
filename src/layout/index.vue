@@ -28,7 +28,7 @@ import AppMain from "./components/AppMain/index.vue";
 
 import RightPanel from "@/components/RightPanel";
 
-// import ResizeMixin from "./mixin/ResizeHandler";
+import ResizeMixin from "./mixin/ResizeHandler";
 import { mapState } from "vuex";
 
 export default {
@@ -41,7 +41,7 @@ export default {
     Settings,
     AppMain
   },
-  //   mixins: [ResizeMixin],
+  mixins: [ResizeMixin],
   computed: {
     ...mapState({
       sidebar: (state) => state.app.sidebar,
