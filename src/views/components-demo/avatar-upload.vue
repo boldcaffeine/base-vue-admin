@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .components-container{
   margin: 30px 50px;
   position: relative;

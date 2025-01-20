@@ -174,6 +174,7 @@ export default {
 }
 
 .mobile .fixed-header {
-  width: 100%;
+  /* width: 100%; */
+  width: calc(100% - 54px);
 }
 </style>
