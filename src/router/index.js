@@ -134,6 +134,18 @@ export const constantRoutes = [
     ],
   },
   {
+    path: '/tab',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/tab/index'),
+        name: 'Tab',
+        meta: { title: 'Tab', icon: 'tab' }
+      }
+    ]
+  },
+  {
     path: "/redirect",
     component: Layout,
     hidden: true,
