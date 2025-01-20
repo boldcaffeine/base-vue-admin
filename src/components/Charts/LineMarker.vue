@@ -1,9 +1,9 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
-import echarts from 'echarts'
+import * as echarts from 'echarts'
 import resize from './mixins/resize'
 
 export default {
@@ -108,9 +108,7 @@ export default {
           },
           axisLabel: {
             margin: 10,
-            textStyle: {
-              fontSize: 14
-            }
+            fontSize: 14
           },
           splitLine: {
             lineStyle: {
@@ -126,30 +124,23 @@ export default {
           symbolSize: 5,
           showSymbol: false,
           lineStyle: {
-            normal: {
-              width: 1
-            }
+            width: 1
           },
           areaStyle: {
-            normal: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: 'rgba(137, 189, 27, 0.3)'
-              }, {
-                offset: 0.8,
-                color: 'rgba(137, 189, 27, 0)'
-              }], false),
-              shadowColor: 'rgba(0, 0, 0, 0.1)',
-              shadowBlur: 10
-            }
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(137, 189, 27, 0.3)'
+            }, {
+              offset: 0.8,
+              color: 'rgba(137, 189, 27, 0)'
+            }], false),
+            shadowColor: 'rgba(0, 0, 0, 0.1)',
+            shadowBlur: 10
           },
           itemStyle: {
-            normal: {
-              color: 'rgb(137,189,27)',
-              borderColor: 'rgba(137,189,2,0.27)',
-              borderWidth: 12
-
-            }
+            color: 'rgb(137,189,27)',
+            borderColor: 'rgba(137,189,2,0.27)',
+            borderWidth: 12
           },
           data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
         }, {
@@ -160,30 +151,23 @@ export default {
           symbolSize: 5,
           showSymbol: false,
           lineStyle: {
-            normal: {
-              width: 1
-            }
+            width: 1
           },
           areaStyle: {
-            normal: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: 'rgba(0, 136, 212, 0.3)'
-              }, {
-                offset: 0.8,
-                color: 'rgba(0, 136, 212, 0)'
-              }], false),
-              shadowColor: 'rgba(0, 0, 0, 0.1)',
-              shadowBlur: 10
-            }
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(0, 136, 212, 0.3)'
+            }, {
+              offset: 0.8,
+              color: 'rgba(0, 136, 212, 0)'
+            }], false),
+            shadowColor: 'rgba(0, 0, 0, 0.1)',
+            shadowBlur: 10
           },
           itemStyle: {
-            normal: {
-              color: 'rgb(0,136,212)',
-              borderColor: 'rgba(0,136,212,0.2)',
-              borderWidth: 12
-
-            }
+            color: 'rgb(0,136,212)',
+            borderColor: 'rgba(0,136,212,0.2)',
+            borderWidth: 12
           },
           data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
         }, {
@@ -194,33 +178,28 @@ export default {
           symbolSize: 5,
           showSymbol: false,
           lineStyle: {
-            normal: {
-              width: 1
-            }
+            width: 1
           },
           areaStyle: {
-            normal: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: 'rgba(219, 50, 51, 0.3)'
-              }, {
-                offset: 0.8,
-                color: 'rgba(219, 50, 51, 0)'
-              }], false),
-              shadowColor: 'rgba(0, 0, 0, 0.1)',
-              shadowBlur: 10
-            }
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(219, 50, 51, 0.3)'
+            }, {
+              offset: 0.8,
+              color: 'rgba(219, 50, 51, 0)'
+            }], false),
+            shadowColor: 'rgba(0, 0, 0, 0.1)',
+            shadowBlur: 10
           },
           itemStyle: {
-            normal: {
-              color: 'rgb(219,50,51)',
-              borderColor: 'rgba(219,50,51,0.2)',
-              borderWidth: 12
-            }
+            color: 'rgb(219,50,51)',
+            borderColor: 'rgba(219,50,51,0.2)',
+            borderWidth: 12
           },
           data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
         }]
       })
+
     }
   }
 }

@@ -1,9 +1,9 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
-import echarts from 'echarts'
+import * as echarts from 'echarts'
 import resize from './mixins/resize'
 
 export default {
@@ -80,9 +80,7 @@ export default {
             show: false
           },
           axisLabel: {
-            textStyle: {
-              color: '#4a657a'
-            }
+            color: '#4a657a'  // 直接配置 color 属性，不再使用 textStyle
           },
           splitLine: {
             show: true,
@@ -100,12 +98,10 @@ export default {
           data: data2,
           z: 1,
           itemStyle: {
-            normal: {
-              opacity: 0.4,
-              barBorderRadius: 5,
-              shadowBlur: 3,
-              shadowColor: '#111'
-            }
+            opacity: 0.4,
+            borderRadius: [5, 5, 0, 0], // 替换 barBorderRadius
+            shadowBlur: 3,
+            shadowColor: '#111'
           }
         }, {
           name: 'Simulate Shadow',
@@ -117,16 +113,12 @@ export default {
           animationEasing: 'linear',
           animationDuration: 1200,
           lineStyle: {
-            normal: {
-              color: 'transparent'
-            }
+            color: 'transparent'
           },
           areaStyle: {
-            normal: {
-              color: '#08263a',
-              shadowBlur: 50,
-              shadowColor: '#000'
-            }
+            color: '#08263a',
+            shadowBlur: 50,
+            shadowColor: '#000'
           }
         }, {
           name: 'front',
@@ -135,20 +127,19 @@ export default {
           xAxisIndex: 1,
           z: 3,
           itemStyle: {
-            normal: {
-              barBorderRadius: 5
-            }
+            borderRadius: [5, 5, 0, 0] // 替换 barBorderRadius
           }
         }],
         animationEasing: 'elasticOut',
         animationEasingUpdate: 'elasticOut',
         animationDelay(idx) {
-          return idx * 20
+          return idx * 20;
         },
         animationDelayUpdate(idx) {
-          return idx * 20
+          return idx * 20;
         }
-      })
+      });
+
     }
   }
 }
