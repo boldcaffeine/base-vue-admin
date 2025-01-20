@@ -60,6 +60,12 @@ const componentsRouter = {
       name: 'CountToDemo',
       meta: { title: 'Count To' }
     },
+    {
+      path: 'mixin',
+      component: () => import('@/views/components-demo/mixin'),
+      name: 'ComponentMixinDemo',
+      meta: { title: 'Component Mixin' }
+    },
   ],
 };
 
