@@ -162,7 +162,7 @@ const calendarTypeOptions = [
   { key: 'JP', display_name: 'Japan' },
   { key: 'EU', display_name: 'Eurozone' }
 ]
-
+import { parseTime as parseTimeFilter } from '@/filters'
 // arr to obj, such as { CN : "China", US : "USA" }
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
   acc[cur.key] = cur.display_name
@@ -174,6 +174,7 @@ export default {
   components: { Pagination },
   directives: { waves },
   filters: {
+    parseTime:parseTimeFilter,
     statusFilter(status) {
       const statusMap = {
         published: 'success',

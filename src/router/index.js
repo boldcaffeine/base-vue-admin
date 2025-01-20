@@ -7,10 +7,10 @@ Vue.use(Router);
 import Layout from "@/layout";
 
 /* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import nestedRouter from './modules/nested'
-import tableRouter from './modules/table'
+import componentsRouter from "./modules/components";
+import chartsRouter from "./modules/charts";
+import nestedRouter from "./modules/nested";
+import tableRouter from "./modules/table";
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -44,70 +44,106 @@ export const constantRoutes = [
     hidden: true,
   },
   {
-    path: '/',
+    path: "/",
     component: Layout,
-    redirect: '/dashboard',
+    redirect: "/dashboard",
     children: [
       {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
-        name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-      }
-    ]
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index"),
+        name: "Dashboard",
+        meta: { title: "Dashboard", icon: "dashboard", affix: true },
+      },
+    ],
   },
   {
-    path: '/documentation',
+    path: "/documentation",
     component: Layout,
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
-      }
-    ]
+        path: "index",
+        component: () => import("@/views/documentation/index"),
+        name: "Documentation",
+        meta: { title: "Documentation", icon: "documentation", affix: true },
+      },
+    ],
   },
   {
-    path: '/guide',
+    path: "/guide",
     component: Layout,
-    redirect: '/guide/index',
+    redirect: "/guide/index",
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/guide/index.vue'),
-        name: 'Guide',
-        meta: { title: 'Guide', icon: 'guide', noCache: true }
-      }
-    ]
+        path: "index",
+        component: () => import("@/views/guide/index.vue"),
+        name: "Guide",
+        meta: { title: "Guide", icon: "guide", noCache: true },
+      },
+    ],
   },
   {
-    path: '/icon',
+    path: "/icon",
     component: Layout,
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/icons/index'),
-        name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon', noCache: true }
-      }
-    ]
+        path: "index",
+        component: () => import("@/views/icons/index"),
+        name: "Icons",
+        meta: { title: "Icons", icon: "icon", noCache: true },
+      },
+    ],
   },
+
   componentsRouter,
   chartsRouter,
   nestedRouter,
   tableRouter,
   {
-    path: '/redirect',
+    path: "/example",
+    component: Layout,
+    redirect: "/example/list",
+    name: "Example",
+    meta: {
+      title: "Example",
+      icon: "star",
+    },
+    children: [
+      {
+        path: "create",
+        component: () => import("@/views/example/create"),
+        name: "CreateArticle",
+        meta: { title: "Create Article", icon: "edit" },
+      },
+      {
+        path: "edit/:id(\\d+)",
+        component: () => import("@/views/example/edit"),
+        name: "EditArticle",
+        meta: {
+          title: "Edit Article",
+          noCache: true,
+          activeMenu: "/example/list",
+        },
+        hidden: true,
+      },
+      {
+        path: "list",
+        component: () => import("@/views/example/list"),
+        name: "ArticleList",
+        meta: { title: "Article List", icon: "list" },
+      },
+    ],
+  },
+  {
+    path: "/redirect",
     component: Layout,
     hidden: true,
     children: [
       {
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
-  }
+        path: "/redirect/:path(.*)",
+        component: () => import("@/views/redirect/index"),
+      },
+    ],
+  },
 ];
 
 /**
